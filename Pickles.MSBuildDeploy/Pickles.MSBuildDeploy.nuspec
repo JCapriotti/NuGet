@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Pickles.MSBuildDeploy</id>
+    <version>0.1.0</version>
+	<authors>Jason Capriotti</authors>
+	<owners>Jason Capriotti</owners>
+    <licenseUrl>http://www.wtfpl.net</licenseUrl>
+    <projectUrl>https://github.com/JCapriotti/NuGet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+	<description>Inserts a build target that will deploy Pickles documentation to a specified location.</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>pickles</tags>
+    <dependencies>
+      <dependency id="Pickles" />
+      <dependency id="Pickles.MSBuild" />
+    </dependencies>
+  </metadata>
+  <files>
+	<file src="build\**\*.*" target="build" />
+  </files>
+</package>

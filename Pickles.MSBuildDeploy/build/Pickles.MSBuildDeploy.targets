@@ -1,0 +1,17 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>  
+		<PicklesBuildDll Include="$(SolutionDir)\packages\Pickles.MSBuild.*\tools\PicklesDoc.Pickles.MSBuild.Tasks.dll" />
+	</ItemGroup>
+	<UsingTask AssemblyFile="@(PicklesBuildDll)" TaskName="Pickles" />
+	<Target Name="DocumentationGeneration" AfterTargets="Build">
+		<PropertyGroup>
+			<DocumentationDirectory Condition=" '$(DocumentationDirectory)' == '' ">$(SolutionDir)\pickles-site</DocumentationDirectory>
+			<FeatureDirectory Condition=" '$(FeatureDirectory)' == '' ">$(MSBuildProjectDirectory)\Features</FeatureDirectory>
+		</PropertyGroup>	
+		<RemoveDir Directories="$(DocumentationDirectory)" />
+		<MakeDir Directories="$(DocumentationDirectory)" />
+		<Pickles FeatureDirectory="$(FeatureDirectory)" 
+			OutputDirectory="$(DocumentationDirectory)" 
+			DocumentationFormat="$(DocumentationFormat)" />
+	</Target>
+</Project>
